@@ -4,10 +4,16 @@
 # Re-include the data directory itself so we can selectively include
 !data/
 
-# Allow only FakeSV vids content
+# Allow only vids content under three datasets
 !data/FakeSV/
 !data/FakeSV/vids/
 !data/FakeSV/vids/**
+!data/FakeTT/
+!data/FakeTT/vids/
+!data/FakeTT/vids/**
+!data/FVC/
+!data/FVC/vids/
+!data/FVC/vids/**
 
 # Ignore all logs by default but keep the folder
 /log/**
