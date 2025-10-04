@@ -26,3 +26,4 @@
 
 # Ignore temporary backup symlink of data
 /data.symlink_backup
+src/outputs/
