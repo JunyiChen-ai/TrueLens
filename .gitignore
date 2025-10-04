@@ -1,0 +1,28 @@
+# Ignore everything under data by default
+/data/
+
+# Re-include the data directory itself so we can selectively include
+!data/
+
+# Allow only FakeSV vids content
+!data/FakeSV/
+!data/FakeSV/vids/
+!data/FakeSV/vids/**
+
+# Ignore all logs by default but keep the folder
+/log/**
+!log/
+!log/.gitkeep
+
+# Common large/derived dirs
+/outputs/
+/preprocess/__pycache__/
+/src/__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+
+# Ignore temporary backup symlink of data
+/data.symlink_backup

@@ -1,0 +1,59 @@
+train:
+
+data:
+  tokenizer_name: "zer0int/LongCLIP-GmP-ViT-L-14"
+  include_piyao: false  # Not applicable for FakeTT (English dataset)
+  description: true      # If true, include description in text concatenation
+  temp_evolution: true   # If true, include temporal_evolution in text concatenation
+  # Modality control parameters
+  use_text: true        # If true, use text features
+  use_image: true        # If true, use visual/image features
+  use_audio: true        # If true, use audio features
+  filter_k: null
+  # Retrieval parameters
+  retrieval_path: "text_similarity_results/full_dataset_retrieval_LongCLIP-GmP-ViT-L-14.json"
+  # 5-fold retrieval directory; ExMRD_data.py will resolve fold_{k}.json under this folder
+  retrieval_path_5fold: "text_similarity_results/uw"
+
+para:
+  hid_dim: 768
+  dropout: 0.3
+  text_encoder: "zer0int/LongCLIP-GmP-ViT-L-14"
+  num_frozen_layers: 2
+  # Evidential model parameters
+  evidential_hidden: 128
+  evidential_dropout: 0.3
+  anneal_steps: 1000
+  loss_weights:
+    fused: 0.2
+    text: 2.0
+    audio: 1.1
+    image: 0.2
+  # Multi-modal transformer parameters
+  transformer_layers: 1
+  transformer_heads: 4
+  # Retrieval attention parameters
+  retrieval_alpha: 0.3   # Weight for positive samples: α * pos + (1-α) * neg + original
+  # Gradient clipping (0.0 = disabled, 1.0 = enabled)
+  gradient_clip_norm: 0.2
+
+opt:
+  name: AdamW
+  lr: 2.985499299792988e-06
+  weight_decay: 0.0003738854665645491
+  
+sche:
+  name: DummyLR
+  
+num_epoch: 22
+batch_size: 16
+text_encoder: "zer0int/LongCLIP-GmP-ViT-L-14"
+seed: 2026
+model: TrueLens
+dataset: FakeTT
+type: 5-fold
+patience: 5
+
+# Evaluation parameters
+eval_only: false  # Set to true for evaluation only mode
+checkpoint: log/FakeTT_0901-123453  # Path to checkpoint for evaluation only mode

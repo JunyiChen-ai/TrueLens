@@ -1,0 +1,57 @@
+train:
+
+data:
+  tokenizer_name: "OFA-Sys/chinese-clip-vit-large-patch14"
+  include_piyao: false  # Whether to include '辟谣' (rumor debunking) labels, mapped to real (0)
+  description: true      # If true, include description in text concatenation
+  temp_evolution: true   # If true, include temporal_evolution in text concatenation
+  # Modality control parameters
+  use_text: true         # If true, use text features
+  use_image: true        # If true, use visual/image features
+  use_audio: true        # If true, use audio features
+  filter_k: null
+  # Retrieval parameters
+  retrieval_path: "text_similarity_results/full_dataset_retrieval_chinese-clip-vit-large-patch14_bankup.json"
+
+para:
+  hid_dim: 256
+  dropout: 0.3
+  text_encoder: "OFA-Sys/chinese-clip-vit-large-patch14"
+  num_frozen_layers: 4
+  # Evidential model parameters
+  evidential_hidden: 256
+  evidential_dropout: 0.1
+  anneal_steps: 1000
+  loss_weights:
+    fused: 1.0
+    text: 1.0
+    audio: 0.5
+    image: 0.5
+  # Multi-modal transformer parameters
+  transformer_layers: 1
+  transformer_heads: 1
+  # Retrieval attention parameters
+  retrieval_alpha: 0.3   # Weight for positive samples: α * pos + (1-α) * neg + original
+  # Gradient clipping (0.0 = disabled, 1.0 = enabled)
+  gradient_clip_norm: 0
+
+opt:
+  name: AdamW
+  lr: 5e-5
+  weight_decay: 5e-4
+  
+sche:
+  name: DummyLR
+  
+num_epoch: 15
+batch_size: 32
+text_encoder: "OFA-Sys/chinese-clip-vit-large-patch14"
+seed: 2024
+model: TrueLens
+dataset: FakeSV
+type: temporal
+patience: 5
+
+# Evaluation parameters
+eval_only: false  # Set to true for evaluation only mode
+checkpoint: log/FakeSV_retrieval_0825-000000  # Path to checkpoint for evaluation only mode

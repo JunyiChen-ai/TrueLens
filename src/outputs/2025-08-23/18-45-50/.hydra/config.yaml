@@ -1,0 +1,45 @@
+train: null
+data:
+  tokenizer_name: OFA-Sys/chinese-clip-vit-large-patch14
+  include_piyao: false
+  description: false
+  temp_evolution: false
+  use_text: true
+  use_image: true
+  use_audio: true
+  llm_predictions_path: data/FakeSV/entity_claims/gating_predictions/gating_predictions.json
+  label_smoothing_epsilon: 0.01
+para:
+  hid_dim: 256
+  dropout: 0.3
+  text_encoder: OFA-Sys/chinese-clip-vit-large-patch14
+  num_frozen_layers: 4
+  use_evidential: true
+  evidential_hidden: 256
+  evidential_dropout: 0.1
+  anneal_steps: 1000
+  loss_weights:
+    fused: 1.0
+    text: 1
+    audio: 0.5
+    image: 0.5
+  gate_hidden_dim: 256
+  gate_dropout: 0.1
+  defer_threshold: 0.5
+  label_smoothing_epsilon: 0.01
+opt:
+  name: AdamW
+  lr: 5.0e-05
+  weight_decay: 0.0005
+sche:
+  name: DummyLR
+num_epoch: 15
+batch_size: 32
+text_encoder: OFA-Sys/chinese-clip-vit-large-patch14
+seed: 2024
+model: ExMRD_Defer
+dataset: FakeSV
+type: temporal
+patience: 5
+eval_only: true
+checkpoint: ../log/FakeSV_0823-175955
