@@ -46,7 +46,7 @@ python preprocess/wav_to_transcript.py --datasets FakeSV FakeTT FVC
 # Frame-aligned audio features (skip transcripts in this step)
 python preprocess/audio_frame_processing.py --dataset FakeSV --skip_transcripts
 
-#LLM-based descriptions (requires OPENAI_API_KEY in env)
+#LLM-based descriptions (requires OPENAI_API_KEY in env; you can safely skip this step if you download our google drive data above)
 python preprocess/LLM_extract.py --dataset FakeTT
 
 # Build full-dataset retrieval artifacts
