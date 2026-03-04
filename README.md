@@ -14,7 +14,7 @@ This repository contains the source code for the paper “TrueLens: Video Fake N
 > - FVC: https://github.com/MKLab-ITI/fake-video-corpus
 > - After downloading, place files under the respective dataset folders and prepare the required metadata `.jsonl` files accordingly. To facilitate reproduction, I have placed the LLM-generated content at the following link: https://drive.google.com/file/d/1hnXQTxbD-WZKwNIG75Zqw2K0o15lMzDD/view?usp=sharing.  
 It contains LLM-generated descriptions for **FakeTT** and **FVC**.  
-For **FakeSV**, the data was accidentally removed from our university server and is currently being recovered. Once the recovery is complete, I will update the Google Drive accordingly.
+For **FakeSV**, the data was accidentally removed from our university server and is currently being recovered. Once the recovery is complete, I will update the Google Drive accordingly. (Update: the LLM generated descriptions for **FakeSV** can be accessed by https://drive.google.com/file/d/1LR_jX6_FnkjgOizsIGOfIZJa2ut8S7cm/view?usp=sharing)
 
 ## Environment
 
