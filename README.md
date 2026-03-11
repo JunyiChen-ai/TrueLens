@@ -1,6 +1,6 @@
 # TrueLens: Video Fake News Detection with Dual Level Evidence Gathering and Consolidation
 
-This repository contains the source code for the paper “TrueLens: Video Fake News Detection with Dual Level Evidence Gathering and Consolidation”.
+This repository contains the source code for the paper “[TrueLens: Video Fake News Detection with Dual Level Evidence Gathering and Consolidation](./WWW_Soft_Copy.pdf)”.
 
 ## Project Structure
 - `data/` — dataset root
@@ -60,3 +60,21 @@ python src/main.py --config-name TrueLens_FakeSV
 python src/main.py --config-name TrueLens_FakeTT
 python src/main.py --config-name TrueLens_FVC
 ```
+## Citation
+
+If you find our research useful, please kindly consider citing the following work:
+
+```bibtex
+@inproceedings{chen2026truelens,
+  author    = {Junyi Chen and Qian Liu and Jing Sun and Yi Zhang},
+  title     = {TrueLens: Video Fake News Detection with Dual Level Evidence Gathering and Consolidation},
+  booktitle = {Proceedings of the ACM Web Conference 2026 (WWW '26)},
+  year      = {2026},
+  address   = {Dubai, United Arab Emirates},
+  month     = {April 13--17},
+  publisher = {ACM},
+  location  = {New York, NY, USA},
+  pages     = {1--11},
+  doi       = {10.1145/3774904.3792362},
+  url       = {https://doi.org/10.1145/3774904.3792362}
+}
