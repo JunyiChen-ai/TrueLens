@@ -50,7 +50,7 @@ python preprocess/audio_frame_processing.py --dataset FakeSV --skip_transcripts
 python preprocess/LLM_extract.py --dataset FakeTT
 
 # Build full-dataset retrieval artifacts
-python preprocess/generate_full_retrieval.py --dataset FakeSV --use-pool
+python preprocess/generate_full_retrieval.py --dataset FakeSV --use-pool --5-fold
 ```
 
 ### 2) Train
@@ -78,3 +78,10 @@ If you find our research useful, please kindly consider citing the following wor
   doi       = {10.1145/3774904.3792362},
   url       = {https://doi.org/10.1145/3774904.3792362}
 }
+```
+## Acknowledgement
+When developing this project, we referred to the following repository:
+
+[ExMRD](https://github.com/ronpay/ExMRD)
+
+Thanks for their contribution.
